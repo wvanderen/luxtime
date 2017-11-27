@@ -3,6 +3,15 @@
     var TimerSession = {};
 
     /**
+    @desc stores the buzz object for the ding sound
+    @type {BuzzObject}
+    */
+    var ding = new buzz.sound('assets/sounds/ding', {
+      formats: ['wav'],
+      preload: true
+    });
+
+    /**
     @desc stores the $interval object that counts down the timerSession
     @type {Object}
     */
@@ -16,6 +25,7 @@
       TimerSession.remainingTime--;
 
       if (TimerSession.remainingTime <= 0) {
+        ding.play();
         if (TimerSession.onBreak) {
           TimerSession.onBreak = false;
         } else {
@@ -100,10 +110,12 @@
         TimerSession.remainingTime = TimerSession.longBreakLength;
         TimerSession.type = "Time for a long break!"
         TimerSession.completedSessions = 0;
-      }
-      else if (breakTime) {
+      } else if (breakTime) {
         TimerSession.remainingTime = TimerSession.breakLength;
         TimerSession.type = "Break Time!";
+      } else if (this.completedSessions === 4) {
+        TimerSession.completedSessions = 0;
+        TimerSession.remainingTime = TimerSession.sessionLength;
       } else {
         TimerSession.remainingTime = TimerSession.sessionLength;
         TimerSession.type = "Work Session";
