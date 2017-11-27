@@ -1,7 +1,22 @@
+.timer-container {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+}
+
+.timer-header {
+  text-align: center;
+}
 .timer-button {
   border: 1px solid black;
   width: 100px;
   text-align: center;
+  border-radius: 5px;
+  cursor: pointer
+}
+
+.timer-button :hover {
+
 }
 
 .start {
@@ -10,4 +25,9 @@
 
 .reset {
   background-color: red;
+}
+
+.break {
+  color: black;
+  background-color: white;
 }

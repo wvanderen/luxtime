@@ -41,19 +41,19 @@
     @desc Sets length of session
     @type {Number}
     */
-    TimerSession.sessionLength = 1;
+    TimerSession.sessionLength = 1500;
 
     /**
     @desc Stores the length of the breakLength
     @type {Number}
     */
-    TimerSession.breakLength = 2;
+    TimerSession.breakLength = 300;
 
     /**
     @desc Stores the length of the breakLength
     @type {Number}
     */
-    TimerSession.longBreakLength = 3;
+    TimerSession.longBreakLength = 1800;
 
     /**
     @desc Stores time left on timer. Starts and resets to sessionLength
