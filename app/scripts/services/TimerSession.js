@@ -16,6 +16,12 @@
       TimerSession.remainingTime--;
 
       if (TimerSession.remainingTime <= 0) {
+        if (TimerSession.onBreak) {
+          TimerSession.onBreak = false;
+        } else {
+          TimerSession.onBreak = true;
+          TimerSession.breakTime = true;
+        }
         $interval.cancel(interval);
       }
     }
@@ -24,13 +30,21 @@
     @desc Sets length of session
     @type {Number}
     */
-    TimerSession.sessionLength = 10;
+    TimerSession.sessionLength = 1;
+
+    /**
+    @desc Stores the length of the breakLength
+    @type {Number}
+    */
+    TimerSession.breakLength = 2;
 
     /**
     @desc Stores time left on timer. Starts and resets to sessionLength
     @type {Number}
     */
     TimerSession.remainingTime = TimerSession.sessionLength;
+
+
 
     /**
     @desc Shows whether there is currently a session running
@@ -39,10 +53,22 @@
     TimerSession.started = false;
 
     /**
-    @desc Describes type of session
+    @desc Describes type of session and displays to user
     @type {String}
     */
-    TimerSession.type = "Pomodoro";
+    TimerSession.type = "Work Session";
+
+    /**
+    @desc Describes whether the user is on break
+    @type {Boolean}
+    */
+    TimerSession.onBreak = false;
+
+    /**
+    @desc Determines whether to show option to take break to user
+    @type {Boolean}
+    */
+    TimerSession.breakTime = false;
 
     /**
     @function start
@@ -58,12 +84,22 @@
     @function reset
     @desc resets the current session
     */
-    TimerSession.reset = function() {
-      TimerSession.remainingTime = TimerSession.sessionLength;
+    TimerSession.reset = function(breakTime) {
+      if (breakTime) {
+        TimerSession.remainingTime = TimerSession.breakLength;
+        TimerSession.type = "Break Time!";
+        TimerSession.breakTime = false;
+      } else {
+        TimerSession.remainingTime = TimerSession.sessionLength;
+        TimerSession.type = "Work Session"
+      }
       TimerSession.started = false;
       $interval.cancel(interval);
 
     }
+
+
+
 
 
 

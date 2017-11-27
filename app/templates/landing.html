@@ -1,6 +1,7 @@
   <section class="timer"  ng-controller="TimerCtrl as timer">
     <div class="timer container">
-      <h2 class="timer-text">{{ timer.timerSession.remainingTime | timecode }}</h2>
+      <h2 class="timer-header">{{ timer.timerSession.type }}
+      <h1 class="timer-text">{{ timer.timerSession.remainingTime | timecode }}</h2>
       <a class="start-stop">
         <h2 class="timer-button start"
           ng-show="!timer.timerSession.started"
@@ -9,6 +10,10 @@
         <h2 class="timer-button reset"
           ng-show="timer.timerSession.started"
           ng-click="timer.timerSession.reset()"> Reset
+        </h2>
+        <h2 class="timer-button break"
+          ng-show="timer.timerSession.breakTime"
+          ng-click="timer.timerSession.reset(timer.timerSession.breakTime)"> Take Break
         </h2>
       </a>
     </div>
