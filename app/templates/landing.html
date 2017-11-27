@@ -12,8 +12,12 @@
           ng-click="timer.timerSession.reset()"> Reset
         </h2>
         <h2 class="timer-button break"
-          ng-show="timer.timerSession.breakTime"
+          ng-show="timer.timerSession.breakTime && timer.timerSession.completedSessions != 4"
           ng-click="timer.timerSession.reset(timer.timerSession.breakTime)"> Take Break
+        </h2>
+        <h2 class="timer-button long-break"
+          ng-show="timer.timerSession.completedSessions === 4"
+          ng-click="timer.timerSession.reset(timer.timerSession.breakTime)"> Take Long Break
         </h2>
       </a>
     </div>
