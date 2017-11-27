@@ -1,17 +1,14 @@
-<h1>This is a test</h1>
-
   <section class="timer"  ng-controller="TimerCtrl as timer">
-    <h1> {{ 2 + 2 }}</h1>
     <div class="timer container">
-      <h2 class="timer-text">{{ timer.timerSession.remainingTime }}</h2>
+      <h2 class="timer-text">{{ timer.timerSession.remainingTime | timecode }}</h2>
       <a class="start-stop">
         <h2 class="timer-button start"
           ng-show="!timer.timerSession.started"
-          ng-click="timer.timerSession.start"> Start
+          ng-click="timer.timerSession.start()"> Start
         </h2>
         <h2 class="timer-button reset"
           ng-show="timer.timerSession.started"
-          ng-click="timer.timerSession.reset"> Reset
+          ng-click="timer.timerSession.reset()"> Reset
         </h2>
       </a>
     </div>

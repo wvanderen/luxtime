@@ -16,16 +16,15 @@
         <img src="assets/images/lux_time_logo.png" alt="luxtime logo">
       </a>
       <div class="links-container">
-        <a ui-sref="timer" class="navbar-link">Timer</a>
-        <a ui-sref="landing" class="navbar-link">Landing</a>
+        <a ui-sref="landing" class="navbar-link">Timer</a>
       </div>
     </nav>
-    {{ 2 + 2}}
     <ui-view></ui-view>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/services/TimerSession.js"></script>
     <script src="/scripts/controllers/TimerCtrl.js"></script>
+    <script src='/scripts/filters/timecode.js'></script>
 </body>
 </html>

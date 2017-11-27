@@ -7,12 +7,6 @@
       });
 
     $stateProvider
-      .state('timer', {
-        url: '/timer',
-        controller: 'TimerCtrl as timer',
-        temmplateUrl: '/templates/timer.html'
-      })
-
       .state('landing', {
         url: '/',
         controller: 'TimerCtrl as timer',

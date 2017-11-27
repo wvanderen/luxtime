@@ -1,32 +1,30 @@
 (function() {
-  function TimerSession() {
+  function TimerSession($interval) {
     var TimerSession = {};
 
     /**
-    @function start
-    @desc starts a new session
+    @desc stores the $interval object that counts down the timerSession
+    @type {Object}
     */
-    var start = function() {
-      TimerSession.started = true;
-
-    }
+    var interval;
 
     /**
-    @function reset
-    @desc resets the current session
+    @function countdown
+    @desc decrements the timer when active, called every 1 seconds
     */
-    var reset = function() {
-      TimerSession.remainingTime = TimerSession.sessionLength;
-      TimerSession.started = false;
+    var countdown = function () {
+      TimerSession.remainingTime--;
 
+      if (TimerSession.remainingTime <= 0) {
+        $interval.cancel(interval);
+      }
     }
-
 
     /**
     @desc Sets length of session
     @type {Number}
     */
-    TimerSession.sessionLength = 1500000;
+    TimerSession.sessionLength = 10;
 
     /**
     @desc Stores time left on timer. Starts and resets to sessionLength
@@ -46,6 +44,29 @@
     */
     TimerSession.type = "Pomodoro";
 
+    /**
+    @function start
+    @desc starts a new session
+    */
+    TimerSession.start = function() {
+      TimerSession.started = true;
+      interval = $interval(countdown, 1000);
+
+    }
+
+    /**
+    @function reset
+    @desc resets the current session
+    */
+    TimerSession.reset = function() {
+      TimerSession.remainingTime = TimerSession.sessionLength;
+      TimerSession.started = false;
+      $interval.cancel(interval);
+
+    }
+
+
+
 
 
     return TimerSession;
@@ -54,5 +75,5 @@
 
   angular
       .module('luxTime')
-      .service('TimerSession', [TimerSession])
-})
+      .service('TimerSession', ['$interval', TimerSession])
+})();
