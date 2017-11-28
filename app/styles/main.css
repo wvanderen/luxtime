@@ -109,3 +109,7 @@ body {
 .clearfix::after {
   clear: both;
 }
+
+.input {
+  margin-bottom: 5px;
+}

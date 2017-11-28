@@ -15,7 +15,7 @@
   }
 
   angular
-      .module('luxTime', ['ui.router'])
+      .module('luxTime', ['ui.router', 'firebase'])
       .config(config);
 
 })();

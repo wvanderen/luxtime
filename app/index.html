@@ -21,12 +21,28 @@
       </div>
     </nav>
     <ui-view></ui-view>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script>
+    // Initialize Firebase
+      var config = {
+          apiKey: "AIzaSyDQt9w94ee4rTLLmgRUz7OoyYQVyx0fLGY",
+          authDomain: "luxtime-f77a6.firebaseapp.com",
+          databaseURL: "https://luxtime-f77a6.firebaseio.com",
+          projectId: "luxtime-f77a6",
+          storageBucket: "luxtime-f77a6.appspot.com",
+          messagingSenderId: "391024158226"
+        };
+        firebase.initializeApp(config);
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.0/buzz.min.js"></script>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/services/TimerSession.js"></script>
+    <script src="/scripts/services/Task.js"></script>
     <script src="/scripts/controllers/TimerCtrl.js"></script>
+    <script src="/scripts/controllers/TaskCtrl.js"></script>
     <script src='/scripts/filters/timecode.js'></script>
 </body>
 </html>

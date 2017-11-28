@@ -1,3 +1,15 @@
+
+<section class='task-list container clearfix column fourth' ng-controller='TaskCtrl as task'>
+  <h2 class="task-header">Task History</h2>
+  <form>
+    <input type='text' placeholder="Enter new task" name='taskName' class="input" ng-model="task.taskName"><br>
+    <input class="button" type="submit" ng-click='task.submit()'>
+  </form>
+  <div class='tasks clearfix' ng-repeat='task in task.taskData track by $index'>
+    <p class='task-link'>{{ task.$value }}</p>
+  </div>
+</section>
+
   <section class="timer"  ng-controller="TimerCtrl as timer">
     <div class="timer-container">
       <h2 class="timer-header">{{ timer.timerSession.type }}
