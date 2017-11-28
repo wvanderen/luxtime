@@ -5,8 +5,8 @@
     <input type='text' placeholder="Enter new task" name='taskName' class="input" ng-model="task.taskName"><br>
     <input class="button" type="submit" ng-click='task.submit()'>
   </form>
-  <div class='tasks clearfix' ng-repeat='task in task.taskData track by $index'>
-    <p class='task-link'>{{ task.$value }}</p>
+  <div class='tasks clearfix' ng-repeat='task in task.taskData | orderBy: "-sentAt" : reverse | limitTo:10'>
+    <p class='task-link'>{{ task.name }}</p>
   </div>
 </section>
 

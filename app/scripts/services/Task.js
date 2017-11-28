@@ -6,8 +6,12 @@
 
     Task.all = tasks;
     Task.add = function(taskName) {
+      var task = {
+        name: taskName,
+        sentAt: firebase.database.ServerValue.TIMESTAMP,
+      };
 
-      tasks.$add(taskName);
+      tasks.$add(task);
     };
 
     return Task;
