@@ -8,12 +8,15 @@
   },
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "ng build --aot -prod"
   },
   "author": "William Van Deren",
   "license": "ISC",
   "dependencies": {
+    "@angular/cli": "^1.6.0",
     "@uirouter/angularjs": "^1.0.11",
+    "express": "^4.16.2",
     "hapi": "~16.4.0",
     "inert": "^4.2.0",
     "path": "^0.4.9"
@@ -22,6 +25,7 @@
     "node": ">=6.11.1"
   },
   "devDependencies": {
+    "@angular/cli": "^1.6.0",
     "connect-modrewrite": "^0.7.9",
     "es5-shim": "^4.0.1"
   }
