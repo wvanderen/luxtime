@@ -12,8 +12,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "grunt dist",
-    "postinstall": "npm run build"
+    "build": "grunt dist"
   },
   "author": "William Van Deren",
   "license": "ISC",
