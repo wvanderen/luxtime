@@ -2,6 +2,9 @@
   "name": "lux-time",
   "version": "0.0.1",
   "description": "Simple Pomodoro time management app",
+  "engines": {
+  "node": "6.11.2"
+},
   "repository": {
     "type": "git",
     "url": "https://github.com/wvanderen/luxtime.git"
