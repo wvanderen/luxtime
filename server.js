@@ -77,11 +77,11 @@ server.on('response', function (request) {
 
 module.exports = server;
 
-const express = require('express');
-const app = express();
+var express = require('express');
+var app = express();
 // Run the app by serving the static files
 // in the dist directory
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/static'));
 // Start the app by listening on the default
 // Heroku port
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8000);
