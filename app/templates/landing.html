@@ -2,10 +2,16 @@
 <section class='task-list container clearfix column fourth' ng-controller='TaskCtrl as task'>
   <h2 class="task-header">Task History</h2>
   <form>
-    <input type='text' placeholder="Enter new task" name='taskName' class="input" ng-model="task.taskName"><br>
+    <button class="button" type="button" ng-click="task.setCategory(0)" ng-class="task.getClass(0)" value="Work">Work</button>
+    <button class="button" type="button" ng-click="task.setCategory(1)" ng-class="task.getClass(1)" value="Learn">Learn</button>
+    <button class="button" type="button" ng-click="task.setCategory(2)" ng-class="task.getClass(2)" value="Create">Create</button>
+    <input type='text' placeholder="Enter new task" name='taskName' class="input" ng-model="task.taskName">
     <input class="button" type="submit" ng-click='task.submit()'>
   </form>
   <div class='tasks clearfix' ng-repeat='task in task.taskData | orderBy: "-sentAt" : reverse | limitTo:10'>
+    <img class="category-symbol" src="assets/images/work.png" alt="work symbol" ng-show="task.category === 0">
+    <img class="category-symbol" src="assets/images/learn.png" alt="learn symbol" ng-show="task.category=== 1">
+    <img class="category-symbol" src="assets/images/create.png" alt="create symbol" ng-show="task.category === 2">
     <p class='task-link'>{{ task.name }}</p>
   </div>
 </section>

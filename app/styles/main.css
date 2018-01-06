@@ -113,3 +113,50 @@ body {
 .input {
   margin-bottom: 5px;
 }
+
+.work {
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(193, 21, 37)
+}
+
+.learn {
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(80, 220, 100, 1);
+}
+
+.create {
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(15, 168, 186, 1);
+}
+
+.inactive {
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: grey;
+}
+
+.button {
+  margin-bottom: 5px;
+}
+
+.category-symbol {
+  width: 5px;
+  height: 5px;
+  display: inline;
+}
+
+.task-link {
+  display: inline-block;
+  margin-bottom: 10px;
+}

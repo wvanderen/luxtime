@@ -8,6 +8,28 @@
       this.taskName = null;
     };
 
+    this.setCategory = function(category) {
+      Task.activeCategory = category;
+    };
+
+    this.getCategory = function() {
+      return Task.activeCategory;
+    }
+
+    this.getClass = function(category) {
+      if (this.getCategory() === category) {
+        if (category === 0) {
+          return "work";
+        } else if (category === 1) {
+          return "learn";
+        } else if (category === 2) {
+          return "create";
+        }
+      } else {
+        return "inactive";
+      }
+    };
+
   }
 
   angular
