@@ -1,5 +1,5 @@
 (function() {
-  function TimerSession($interval) {
+  function TimerSession($interval, Task) {
     var TimerSession = {};
 
     /**
@@ -26,6 +26,7 @@
 
       if (TimerSession.remainingTime <= 0) {
         ding.play();
+        //Add one to day count for categroy
         if (TimerSession.onBreak) {
           TimerSession.onBreak = false;
         } else {
@@ -92,6 +93,12 @@
     TimerSession.breakTime = false;
 
     /**
+    @desc Determines the option for long breaks are displayed
+    @type {Boolean}
+    */
+    TimerSession.longBreaks = false;
+
+    /**
     @function start
     @desc starts a new session
     */
@@ -113,7 +120,7 @@
       } else if (breakTime) {
         TimerSession.remainingTime = TimerSession.breakLength;
         TimerSession.type = "Break Time!";
-      } else if (this.completedSessions === 4) {
+      } else if (this.completedSessions === 4 && this.longBreaks) {
         TimerSession.completedSessions = 0;
         TimerSession.remainingTime = TimerSession.sessionLength;
       } else {
@@ -140,5 +147,5 @@
 
   angular
       .module('luxTime')
-      .service('TimerSession', ['$interval', TimerSession])
+      .service('TimerSession', ['$interval', 'Task', TimerSession])
 })();

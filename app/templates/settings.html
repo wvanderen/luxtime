@@ -1,0 +1,18 @@
+<section class="settings" ng-controller="TimerCtrl as timer">
+  <form class="settings-container">
+    <h2 class="settings-header">Work Session Length</h2>
+    <input type='number' placeholder="Session length in minutes" name='sessionLength' class="input" ng-model="timer.sessionLength">
+    <p>Current length: {{ (timer.timerSession.sessionLength / 60) }} minutes </p><br>
+    <h2 class="settings-header">Break Session Length</h2>
+    <input type='number' placeholder="Break length in minutes" name='breakLength' class="input" ng-model="timer.breakLength">
+    <p>Current length: {{ (timer.timerSession.breakLength / 60) }} minutes </p>
+    <h2 class="settings-header">Long Break Settings</h2>
+    <p >Take an long break every 4 sessions?</p><br>
+    <input type="checkbox" name="longBreaks" ng-model="timer.longBreaks"><br>
+    <p>Long Break Length</p>
+    <input type='number' placeholder="Long break length in minutes" name='longBreakLength' class="input" ng-model="timer.longBreakLength"><br>
+    <p>Current length: {{ (timer.timerSession.longBreakLength / 60) }} minutes </p>
+    <input class="button settings-button" type="submit" ng-click='timer.submit()'>
+  </form>
+  <p>Start and reset the timer for your changes to be reflected. If you reload the page your changes will be lost, click the logo at the top of the screen to go back.</p>
+</section>

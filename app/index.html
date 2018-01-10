@@ -9,6 +9,7 @@
       <link rel="stylesheet" type="text/css" href="styles/normalize.css">
       <link rel="stylesheet" type="text/css" href="styles/main.css">
       <link rel="stylesheet" type="text/css" href="styles/timer.css">
+      <link rel="stylesheet" type="text/css" href="styles/settings.css">
 	<!-- ****** faviconit.com favicons ****** -->
 	<link rel="shortcut icon" href="/favicon.ico">
 	<link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
@@ -40,6 +41,7 @@
           <img class="lux-logo" src="assets/images/luxtime-logo.png" alt="luxtime logo">
         </a>
         <h1 class="header">Time</h1>
+        <a ui-sref="settings" class="nav">Settings</a>
       </div>
     </nav>
     <ui-view></ui-view>
@@ -65,6 +67,7 @@
     <script src="/scripts/services/Task.js"></script>
     <script src="/scripts/controllers/TimerCtrl.js"></script>
     <script src="/scripts/controllers/TaskCtrl.js"></script>
+    <script src="/scripts/controllers/MainCtrl.js"></script>
     <script src='/scripts/filters/timecode.js'></script>
 </body>
 </html>

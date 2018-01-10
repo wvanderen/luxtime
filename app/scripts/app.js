@@ -11,6 +11,11 @@
         url: '/',
         controller: 'TimerCtrl as timer',
         templateUrl: '/templates/landing.html'
+      })
+
+      .state('settings', {
+        url: '/settings',
+        templateUrl: '/templates/settings.html'
       });
   }
 

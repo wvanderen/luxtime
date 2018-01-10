@@ -160,3 +160,15 @@ body {
   display: inline-block;
   margin-bottom: 10px;
 }
+
+.theme-select {
+  bottom: 0;
+  right: 0;
+  display: block
+}
+
+.nav {
+  color: white;
+  margin-left: 800px;
+  text-decoration: none;
+}

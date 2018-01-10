@@ -1,0 +1,20 @@
+.settings-container {
+  position: absolute;
+  left: 20%;
+  top: 25%;
+}
+
+.settings-header {
+  text-align: center;
+}
+.settings-button {
+  border: 1px solid black;
+  width: 100px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer
+}
+
+.settings-button :hover {
+
+}
