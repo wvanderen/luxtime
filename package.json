@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Simple Pomodoro time management app",
   "engines": {
-  "node": "6.11.2"
-},
+    "node": "6.11.2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/wvanderen/luxtime.git"
@@ -17,15 +17,18 @@
   "author": "William Van Deren",
   "license": "ISC",
   "dependencies": {
-    "@angular/cli": "^1.6.0",
+    "@angular/cli": "^1.6.3",
+    "@angular/core": "latest",
     "@uirouter/angularjs": "^1.0.11",
+    "angularfire2": "^5.0.0-rc.4",
+    "bower": "^1.8.0",
     "ejs": "~1.0.0",
     "express": "^4.16.2",
+    "firebase": "^4.8.1",
+    "grunt": "^1.0.1",
     "hapi": "~16.4.0",
     "inert": "^4.2.0",
-    "path": "^0.4.9",
-    "bower":"^1.8.0",
-    "grunt":"^1.0.1"
+    "path": "^0.4.9"
   },
   "devDependencies": {
     "@angular/cli": "^1.6.0",
