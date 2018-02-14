@@ -36,12 +36,14 @@
 <body>
     <nav class="navbar">
       <div class="navbar-container">
+        <a ui-sref="landing" class="logo header">
         <h1 class="header">Lux</h1>
-        <a ui-sref="landing" class="logo">
+
           <img class="lux-logo" src="assets/images/luxtime-logo.png" alt="luxtime logo">
         </a>
-        <h1 class="header">Time</h1>
-        <a ui-sref="settings" class="nav">Settings</a>
+        <a ui-sref="settings" class="header">
+          <h1 class="header">Time</h1>
+        </a>
       </div>
     </nav>
     <ui-view></ui-view>

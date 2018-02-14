@@ -78,13 +78,13 @@
     @desc Sets length of session
     @type {Number}
     */
-    TimerSession.sessionLength = 1500;
+    TimerSession.sessionLength = 5400;
 
     /**
     @desc Stores the length of the breakLength
     @type {Number}
     */
-    TimerSession.breakLength = 300;
+    TimerSession.breakLength = 1200;
 
     /**
     @desc Stores the length of the breakLength
@@ -151,6 +151,18 @@
     }
 
 
+        /**
+        @function pauseMusic
+        @desc Turns off the music without disrupting the timer
+        */
+        TimerSession.pauseMusic = function() {
+          allWeEverKnew.stop();
+          spiderDance.stop();
+
+        }
+
+
+
 
     /**
     @function reset
@@ -163,13 +175,13 @@
         TimerSession.completedSessions = 0;
       } else if (breakTime) {
         TimerSession.remainingTime = TimerSession.breakLength;
-        TimerSession.type = "Break Time!";
+        TimerSession.type = "Downtime!";
       } else if (this.completedSessions === 4 && this.longBreaks) {
         TimerSession.completedSessions = 0;
         TimerSession.remainingTime = TimerSession.sessionLength;
       } else {
         TimerSession.remainingTime = TimerSession.sessionLength;
-        TimerSession.type = "Work Session";
+        TimerSession.type = "Uptime!";
         TimerSession.onBreak = false;
       }
       TimerSession.breakTime = false;

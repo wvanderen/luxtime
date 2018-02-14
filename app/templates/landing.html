@@ -38,8 +38,12 @@
           ng-show="timer.timerSession.completedSessions === 4"
           ng-click="timer.timerSession.reset(timer.timerSession.breakTime)"> Take Long Break
         </h2>
+        <h2 class="timer-button off"
+          ng-click="timer.timerSession.pauseMusic()"> Stop Music
+        </h2>
       </a>
     </div>
+
   </section>
 
 <!-- Theme selection icons, not yet impletmented -->

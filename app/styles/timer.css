@@ -31,3 +31,7 @@
   color: black;
   background-color: white;
 }
+
+.off {
+  background-color: grey;
+}
