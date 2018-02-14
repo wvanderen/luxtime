@@ -120,7 +120,7 @@
     @desc Describes type of session and displays to user
     @type {String}
     */
-    TimerSession.type = "Work Session";
+    TimerSession.type = "Uptime";
 
     /**
     @desc Describes whether the user is on break
