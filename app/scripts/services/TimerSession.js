@@ -56,17 +56,18 @@
           TimerSession.reset();
           TimerSession.started = true;
           TimerSession.remainingTime = TimerSession.sessionLength;
-          TimerSession.type = "Work Session";
+          TimerSession.type = "Uptime!";
           TimerSession.onBreak = false;
           interval = $interval(countdown, 1000);
         } else {
           spiderDance.pause();
           allWeEverKnew.play();
+          $interval.cancel(interval);
           TimerSession.completedSessions++;
           TimerSession.onBreak = true;
           TimerSession.breakTime = true;
           TimerSession.remainingTime = TimerSession.breakLength;
-          TimerSession.type = "Break Time!";
+          TimerSession.type = "Downtime";
           TimerSession.started = true;
           interval = $interval(countdown, 1000);
         }
