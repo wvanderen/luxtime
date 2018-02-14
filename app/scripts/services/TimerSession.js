@@ -3,13 +3,33 @@
     var TimerSession = {};
 
     /**
-    @desc stores the buzz object for the ding sound
+    // @desc stores the buzz object for the ding sound
+    // @type {BuzzObject}
+    // */
+    // var ding = new buzz.sound('assets/sounds/ding', {
+    //   formats: ['wav'],
+    //   preload: true
+    // });
+
+    /**
+    @desc stores the buzz object for the spiderDance sound
     @type {BuzzObject}
     */
-    var ding = new buzz.sound('assets/sounds/ding', {
-      formats: ['wav'],
+    var spiderDance = new buzz.sound('assets/sounds/spiderdance', {
+      formats: ['mp3'],
       preload: true
     });
+
+
+    /**
+    @desc stores the buzz object for the allWeEverKnew sound
+    @type {BuzzObject}
+    */
+    var allWeEverKnew = new buzz.sound('assets/sounds/allweeverknew', {
+      formats: ['mp3'],
+      preload: true
+    });
+
 
     /**
     @desc stores the $interval object that counts down the timerSession
@@ -24,18 +44,34 @@
     var countdown = function () {
       TimerSession.remainingTime--;
 
-      if (TimerSession.remainingTime <= 0) {
-        ding.play();
+      if (TimerSession.remainingTime <= 1) {
+
+
+
         //Add one to day count for categroy
         if (TimerSession.onBreak) {
+          allWeEverKnew.pause();
+          spiderDance.play();
           TimerSession.onBreak = false;
+          TimerSession.reset();
+          TimerSession.started = true;
+          TimerSession.remainingTime = TimerSession.sessionLength;
+          TimerSession.type = "Work Session";
+          TimerSession.onBreak = false;
+          interval = $interval(countdown, 1000);
         } else {
+          spiderDance.pause();
+          allWeEverKnew.play();
           TimerSession.completedSessions++;
           TimerSession.onBreak = true;
           TimerSession.breakTime = true;
+          TimerSession.remainingTime = TimerSession.breakLength;
+          TimerSession.type = "Break Time!";
+          TimerSession.started = true;
+          interval = $interval(countdown, 1000);
         }
-        $interval.cancel(interval);
       }
+
     }
 
     /**
@@ -75,6 +111,12 @@
     TimerSession.started = false;
 
     /**
+    @desc Determines whether the timer will continue automatically or a button needs to be pressed
+    @type {Boolean}
+    */
+    TimerSession.skipBreaks = true;
+
+    /**
     @desc Describes type of session and displays to user
     @type {String}
     */
@@ -107,6 +149,8 @@
       interval = $interval(countdown, 1000);
 
     }
+
+
 
     /**
     @function reset
